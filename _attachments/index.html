@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Cordova plugin</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="container">
+            <form>
+                <fieldset>
+                    <legend>New Cordova plugin</legend>
+                    <label>Plugin Name</label>
+                    <input id="name" type="text" placeholder="Enter plugin name..."></input>
+                    <label>Description (140 characters max)</label>
+                    <input id="description" type="text" placeholder="Enter plugin description..."></input>
+                    <label>git repository URL</label>
+                    <input id="url" type="text" placeholder="Enter your git repository url..."></input><br/>
+                    <button type="submit" class="btn">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/couch.js"></script>
+        <script type="text/javascript">
+            function onSubmit() {
+                db = new CouchDB("cordova_plugins");
+            }
+        </script>
+    </body>
+</html>
