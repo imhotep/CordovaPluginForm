@@ -6,25 +6,32 @@
     </head>
     <body>
         <div class="container">
-            <form>
-                <fieldset>
-                    <legend>New Cordova plugin</legend>
-                    <label>Plugin Name</label>
-                    <input id="name" type="text" placeholder="Enter plugin name..."></input>
-                    <label>Description (140 characters max)</label>
-                    <input id="description" type="text" placeholder="Enter plugin description..."></input>
-                    <label>git repository URL</label>
-                    <input id="url" type="text" placeholder="Enter your git repository url..."></input><br/>
-                    <button type="submit" class="btn">Submit</button>
-                </fieldset>
-            </form>
+            <h1>Cordova Plugin Form</h1>
+            <div class="span5">
+                <form method="POST" action="">
+                    <fieldset>
+                        <legend>New/Edit Cordova plugin</legend>
+                        <label>Plugin Name</label>
+                        <input id="name" type="text" placeholder="Enter plugin name..."></input>
+                        <label>Description (140 characters max)</label>
+                        <textarea id="description" rows="3" placeholder="Enter plugin description..."></textarea>
+                        <label>git repository URL</label>
+                        <input id="url" type="text" placeholder="Enter your git repository url..."></input><br/>
+                        <div id="recaptcha_div"></div>
+                        <button type="submit" class="btn">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
         </div>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="js/couch.js"></script>
+        <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
         <script type="text/javascript">
-            function onSubmit() {
-                db = new CouchDB("cordova_plugins");
-            }
+            Recaptcha.create("6Lc5FtwSAAAAAFGXRfab_3GsozmD6FSS9gPJe_SB",
+            "recaptcha_div",
+            {
+                theme: "red",
+                callback: Recaptcha.focus_response_field
+            });
         </script>
     </body>
 </html>
